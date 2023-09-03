@@ -5,6 +5,9 @@
   --darkest-purple: #2a2438;
   --black: #1a1c1e;
   --white: #f2f2f2;
+  --green: #7dd87d;
+  --yellow: #f9b248;
+  --red: #be3144;
 }
 
 * {
@@ -22,11 +25,12 @@ body {
 }
 
 /* HEADER */
+
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 30px 40px;
 }
 
 .logo {
@@ -41,7 +45,6 @@ body {
 }
 
 button.add-book {
-  justify-content: flex-end;
   font-size: 2rem;
   border-radius: 50%;
   border: none;
@@ -57,6 +60,7 @@ button.add-book:hover {
 }
 
 /* SECTION */
+
 .library-stats {
   display: flex;
   flex-direction: column;
@@ -73,6 +77,73 @@ button.add-book:hover {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+}
+
+/* MAIN */
+
+/* MODAL */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.overlay.active {
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 25px;
+  border-radius: 15px;
+  background-color: var(--darkest-purple);
+  color: var(--white);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in-out;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+form > h3 {
+  padding-bottom: 15px;
+  align-self: center;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: var(--green);
+  color: var(--black);
+  width: 40%;
+  align-self: flex-end;
+  padding: 12px 8px;
+  border-radius: 15px;
+  border-style: none;
+  margin-top: 30px;
 }
 /* FOOTER */
 

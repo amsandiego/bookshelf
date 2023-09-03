@@ -27,7 +27,7 @@
           <h1>Bookshelf</h1>
           <img src="./assets/bookshelf-icon-64.png" alt="Bookshelf Logo" />
         </div>
-        <button class="add-book">
+        <button class="add-book" id="add-book">
           <i class="fa-solid fa-plus"></i>
         </button>
       </div>
@@ -58,6 +58,40 @@
         <i class="fab fa-github"></i>
       </a>
     </footer>
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="add-book-modal">
+      <form action method class="add-book-form" id="add-book-form">
+        <h3>Add book</h3>
+        <label for="title">Title</label>
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Kafka on the Shore"
+          required
+          minlength="2"
+          maxlength="100"
+        />
+        <small class="error-msg" id="error-msg"></small>
+        <label for="author">Author</label>
+        <input
+          class="input"
+          type="text"
+          id="author"
+          placeholder="Haruki Murakami"
+          required
+          minlength="2"
+          maxlength="100"
+        />
+        <label for="status">Status</label>
+        <select class="status" id="status">
+          <option value="read">Read</option>
+          <option value="in-progress">Currently Reading</option>
+          <option value="to-read">To Read</option>
+        </select>
+        <button class="submit-btn" type="submit">Add</button>
+      </form>
+    </div>
   </body>
   <script src="app.js"></script>
 </html>
