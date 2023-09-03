@@ -10,12 +10,54 @@
       href="./assets/bookshelf-icon.png"
       type="image/x-icon"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
     <script
-      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      src="https://kit.fontawesome.com/3be90f9ee6.js"
       crossorigin="anonymous"
     ></script>
     <title>Bookshelf</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <h1>Bookshelf</h1>
+          <img src="./assets/bookshelf-icon-64.png" alt="Bookshelf Logo" />
+        </div>
+        <button class="add-book">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </header>
+    <section class="library-stats">
+      <h2>Library Stats</h2>
+      <dl class="total-books">
+        <dt>Total book count:</dt>
+        <dd>0</dd>
+      </dl>
+      <dl class="read-books">
+        <dt>Read:</dt>
+        <dd>0</dd>
+      </dl>
+      <dl class="in-progress-books">
+        <dt>Currently reading:</dt>
+        <dd>0</dd>
+      </dl>
+      <dl class="unread-books">
+        <dt>Unread:</dt>
+        <dd>0</dd>
+      </dl>
+    </section>
+    <main></main>
+    <footer>
+      <p>© Annie San Diego</p>
+      <a href="https://github.com/amsandiego/bookshelf" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </footer>
+  </body>
   <script src="app.js"></script>
 </html>
