@@ -36,11 +36,7 @@ This is a solution to the Library Project on [The Odin Project JavaScript Course
 
 ### What I learned
 
-- Using CSS custom properties
-- How to properly layout vertical background image with -size, -position, -repeat
-- Flex-flow
-- Basic RegEx
-- Form validation
+- Use of data attributes
 
 ### Continued development
 

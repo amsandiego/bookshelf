@@ -74,7 +74,10 @@ const getInputData = () => {
 };
 
 const removeBook = (e) => {
-  console.log(e);
+  const bookID = e.target.parentNode.parentNode.dataset.id;
+  library.removeBook(bookID);
+  saveLocalData();
+  updateDisplay();
 };
 
 const updateDisplay = () => {
@@ -98,7 +101,9 @@ const createCard = (book) => {
   card.classList.add('card');
   author.classList.add('author');
   deleteBtn.classList.add('delete-button');
+  card.setAttribute('data-id', `${book.id}`);
 
+  // Status Dropdown Selector
   statusOption.classList.add('status-option');
   read.setAttribute('value', 'read');
   inProgress.setAttribute('value', 'in-progress');
