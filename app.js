@@ -31,7 +31,6 @@ const retrieveLocalData = () => {
   library.bookshelf = books.map(
     (book) => new Book(book.title, book.author, book.status)
   );
-  console.log(library.bookshelf);
 };
 
 // User Interface
@@ -88,21 +87,49 @@ const updateDisplay = () => {
 
 const createCard = (book) => {
   const card = document.createElement('div');
+  const deleteBtn = document.createElement('button');
   const title = document.createElement('p');
   const author = document.createElement('p');
-  const status = document.createElement('select');
-  const deleteBtn = document.createElement('button');
+  const statusOption = document.createElement('select');
+  const read = document.createElement('option');
+  const inProgress = document.createElement('option');
+  const toRead = document.createElement('option');
 
   card.classList.add('card');
+  author.classList.add('author');
+  deleteBtn.classList.add('delete-button');
+
+  statusOption.classList.add('status-option');
+  read.setAttribute('value', 'read');
+  inProgress.setAttribute('value', 'in-progress');
+  toRead.setAttribute('value', 'to-read');
+  read.textContent = 'Read';
+  inProgress.textContent = 'Currently Reading';
+  toRead.textContent = 'To Read';
+  if (book.status === 'read') {
+    read.setAttribute('selected', '');
+    statusOption.classList.add('read');
+  } else if (book.status === 'in-progress') {
+    inProgress.setAttribute('selected', '');
+    statusOption.classList.add('in-progress');
+  } else if (book.status === 'to-read') {
+    toRead.setAttribute('selected', '');
+    statusOption.classList.add('to-read');
+  }
+
   deleteBtn.onclick = removeBook;
 
   title.textContent = book.title;
   author.textContent = book.author;
-  deleteBtn.textContent = 'Delete';
+  deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
 
+  card.appendChild(deleteBtn);
   card.appendChild(title);
   card.appendChild(author);
-  card.appendChild(deleteBtn);
+  statusOption.appendChild(read);
+  statusOption.appendChild(inProgress);
+  statusOption.appendChild(toRead);
+  card.appendChild(statusOption);
   bookshelfGrid.appendChild(card);
 };
 
