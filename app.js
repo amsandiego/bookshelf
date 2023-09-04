@@ -89,10 +89,18 @@ const removeBook = (e) => {
 const updateDisplay = () => {
   //reset grid
   bookshelfGrid.innerHTML = '';
+
+  //create cards
   for (let book of library.bookshelf) {
     createCard(book);
   }
+
+  //listen for changes to book status
   toggleBookStatus();
+
+  //update library stats
+  const stats = getLibraryStats();
+  updateStats(stats);
 };
 
 const createCard = (book) => {
@@ -155,6 +163,40 @@ const toggleBookStatus = () => {
       updateDisplay();
     });
   });
+};
+
+const getLibraryStats = () => {
+  const totalBooks = library.bookshelf.length;
+  const booksRead = library.bookshelf.filter(
+    (book) => book.status === 'read'
+  ).length;
+  const booksReading = library.bookshelf.filter(
+    (book) => book.status === 'in-progress'
+  ).length;
+  const booksToRead = library.bookshelf.filter(
+    (book) => book.status === 'to-read'
+  ).length;
+
+  return {
+    totalBooks,
+    booksRead,
+    booksReading,
+    booksToRead,
+  };
+};
+
+const updateStats = (stats) => {
+  const { totalBooks, booksRead, booksReading, booksToRead } = stats;
+
+  const totalElement = document.getElementById('total-books');
+  const readElement = document.getElementById('read-books');
+  const readingElement = document.getElementById('in-progress-books');
+  const toReadElement = document.getElementById('to-read-books');
+
+  totalElement.textContent = totalBooks || '0';
+  readElement.textContent = booksRead || '0';
+  readingElement.textContent = booksReading || '0';
+  toReadElement.textContent = booksToRead || '0';
 };
 
 // Event listeners
