@@ -80,6 +80,30 @@ button.add-book:hover {
 }
 
 /* MAIN */
+main {
+  padding: 30px;
+}
+.bookshelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 2rem;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  background-color: var(--dark-purple);
+  color: var(--white);
+  line-height: 1.2;
+  border-radius: 5px;
+  padding: 10px;
+  height: 250px;
+  width: 250px;
+}
 
 /* MODAL */
 .overlay {
