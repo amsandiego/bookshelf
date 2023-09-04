@@ -19,6 +19,12 @@ class Library {
   removeBook(id) {
     this.bookshelf = this.bookshelf.filter((book) => book.id !== id);
   }
+
+  toggleStatus(id, newStatus) {
+    const targetBook = this.bookshelf.find((book) => book.id === id);
+    targetBook.status = newStatus;
+    saveLocalData();
+  }
 }
 
 // Local storage
@@ -86,6 +92,7 @@ const updateDisplay = () => {
   for (let book of library.bookshelf) {
     createCard(book);
   }
+  toggleBookStatus();
 };
 
 const createCard = (book) => {
@@ -104,7 +111,7 @@ const createCard = (book) => {
   card.setAttribute('data-id', `${book.id}`);
 
   // Status Dropdown Selector
-  statusOption.classList.add('status-option');
+  statusOption.classList.add('status-option', 'new-status');
   read.setAttribute('value', 'read');
   inProgress.setAttribute('value', 'in-progress');
   toRead.setAttribute('value', 'to-read');
@@ -136,6 +143,18 @@ const createCard = (book) => {
   statusOption.appendChild(toRead);
   card.appendChild(statusOption);
   bookshelfGrid.appendChild(card);
+};
+
+const toggleBookStatus = () => {
+  document.querySelectorAll('.new-status').forEach((option) => {
+    option.addEventListener('change', (e) => {
+      const bookID = e.target.closest('.status-option').parentNode.dataset.id;
+      const newStatus = e.target.value;
+
+      library.toggleStatus(bookID, newStatus);
+      updateDisplay();
+    });
+  });
 };
 
 // Event listeners
