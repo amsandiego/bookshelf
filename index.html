@@ -27,31 +27,33 @@
           <img src="./assets/bookshelf-icon-64.png" alt="Bookshelf Logo" />
           <h1>Bookshelf</h1>
         </div>
+        <div class="library-stats">
+          <h2>Library Stats</h2>
+          <dl>
+            <dt>Total book count:</dt>
+            <dd id="total-books">0</dd>
+          </dl>
+          <dl>
+            <dt>Read:</dt>
+            <dd id="read-books">0</dd>
+          </dl>
+          <dl>
+            <dt>Currently reading:</dt>
+            <dd id="in-progress-books">0</dd>
+          </dl>
+          <dl>
+            <dt>To Read:</dt>
+            <dd id="to-read-books">0</dd>
+          </dl>
+        </div>
         <button class="add-book" id="add-book">
           <i class="fa-solid fa-plus"></i>
         </button>
       </div>
     </header>
-    <section class="library-stats">
-      <h2>Library Stats</h2>
-      <dl class="total-books">
-        <dt>Total book count:</dt>
-        <dd>0</dd>
-      </dl>
-      <dl class="read-books">
-        <dt>Read:</dt>
-        <dd>0</dd>
-      </dl>
-      <dl class="in-progress-books">
-        <dt>Currently reading:</dt>
-        <dd>0</dd>
-      </dl>
-      <dl class="unread-books">
-        <dt>Unread:</dt>
-        <dd>0</dd>
-      </dl>
-    </section>
-    <main></main>
+    <main>
+      <div class="bookshelf-grid" id="bookshelf-grid"></div>
+    </main>
     <footer>
       <p>© Annie San Diego</p>
       <a href="https://github.com/amsandiego/bookshelf" target="_blank">
