@@ -17,6 +17,9 @@ Full Screen Display
 Add Book Modal
 ![](./assets/screenshot-2.png)
 
+Mobile View
+![](./assets/screenshot-3.png)
+
 - Users can add a new book to their bookshelf by clicking a button, which will open a pop-up that asks for the title, author, and status of the book.
 - Users can change the status of the book by selecting the new status from the dropdown in the book's card.
 - Users can also delete a card by clicking the 'x' button on the card.
